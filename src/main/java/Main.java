@@ -35,7 +35,6 @@ public class Main {
             print("Какую пиццу вы хотели бы закзать?\nСырная, Пепперони, Вегетарианская:");
             pizzas.add(i, store.orderPizza(sc.next()));
             print("Введите размер пиццы (30/45/60 см):");
-//            pizzas.get(i).setStandsrtSize(sc.nextInt());
             switch (sc.nextInt()) {
                 case (30):
                     pizzas.get(i).setStandsrtSize(30);
@@ -50,9 +49,18 @@ public class Main {
                     throw new IllegalStateException("Вы указали неверный размер пиццы");
             }
 
-            pizzas.set(i, new PizzaCheese(pizzas.get(i)));
-            pizzas.set(i, new PizzaСucumber(pizzas.get(i)));
-            pizzas.set(i, new PizzaJalapeno(pizzas.get(i)));
+            print("Желаете добавить к пицце добавки?\nЕсли не желаете введите 'Далее', иначе:\nСыр, Огурец, Халапеньо:");
+            String input = sc.next();
+            while (!input.equals("Далее")) {
+                switch (input) {
+                    case ("Сыр") -> pizzas.set(i, new PizzaCheese(pizzas.get(i)));
+                    case ("Огурец") -> pizzas.set(i, new PizzaСucumber(pizzas.get(i)));
+                    case ("Халапеньо") -> pizzas.set(i, new PizzaJalapeno(pizzas.get(i)));
+                    default -> throw new IllegalStateException("Вы указали неверное название добавки");
+                }
+                print("Если добавки больше не нужны, нажмите 'Далее'\nЕсли желаете еще добавки, введите:\nСыр, Огурец, Халапеньо:");
+                input = sc.next();
+            }
 
             print("Введите 'Далее' если готовы перейти к оформлению заказа\n" +
                     "Если желаете заказать еще что то, введите любой другой символ");
@@ -80,9 +88,10 @@ public class Main {
      */
 
     private static boolean start(Scanner sc) {
-        print("Если желаете посмотреть меню нажмите - 1\n" +
-                "Если хотите выйти из программы нажмите - 2\n" +
-                "Если желаете сделать заказ, введите любое другое число.");
+        print("""
+                Если желаете посмотреть меню нажмите - 1
+                Если хотите выйти из программы нажмите - 2
+                Если желаете сделать заказ, введите любое другое число.""");
         int option = 0;
         try {
             option = sc.nextInt();
@@ -111,7 +120,7 @@ public class Main {
         print("Ваш заказ включает пиццу:");
         double total = 0;
         for (Pizza pizza : pizzas) {
-            System.out.println(pizza.getName() + " размером " + pizza.getStandsrtSize() + " по цене " + pizza.getPrice() + "$");
+            System.out.println(pizza.getName() + " размером " + pizza.getStandsrtSize() + " см, по цене " + pizza.getPrice() + "$");
             total += pizza.getPrice();
         }
         print("Общая стоимость заказа = " + total + "$\n" +
