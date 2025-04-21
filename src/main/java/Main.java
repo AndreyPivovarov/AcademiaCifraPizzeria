@@ -20,7 +20,6 @@ public class Main {
 
     /**
      * Метод создания заказа
-     * @param store пиццерия
      */
     private static void order(Scanner sc, PizzaStore store) {
         ArrayList<Pizza> pizzas = new ArrayList<>();
@@ -28,7 +27,7 @@ public class Main {
         for (int i = 0; i < 10; i++) {
 
             if (i == 4) {
-                limit(i);
+                limit(i); // лимит на количество блюд
                 return;
             }
 
@@ -60,7 +59,6 @@ public class Main {
             if (sc.next().equals("Далее")) break;
         }
         pizzaCalculate(pizzas);
-
     }
 
     /**
@@ -105,19 +103,30 @@ public class Main {
     }
 
     /**
-     * Метод подтверждения заказа: вывод информации о заказанных блюдах и расчет общей стоимости
+     * Метод подтверждения заказа: вывод информации о заказанных блюдах
      * @param pizzas список заказанных блюд
      */
 
     private static void pizzaCalculate(ArrayList<Pizza> pizzas) {
         print("Ваш заказ включает пиццу:");
-        double total = 0;
         for (Pizza pizza : pizzas) {
             System.out.println(pizza.getName() + " размером " + pizza.getStandsrtSize() + " см, по цене " + pizza.getPrice() + "$");
-            total += pizza.getPrice();
         }
-        print("Общая стоимость заказа = " + total + "$\n" +
+        print("Общая стоимость заказа = " + total(pizzas) + "$\n" +
                 "Хотите продолжить?");
+    }
+
+    /**
+     * Метод рассчета общей стоимости заказа
+     * @param pizzas список заказанных блюд
+     */
+
+    private static double total(ArrayList<Pizza> pizzas) {
+        double sum = 0;
+        for (Pizza pizza : pizzas) {
+            sum += pizza.getPrice();
+        }
+        return sum;
     }
 
     public static void print(String s) {
