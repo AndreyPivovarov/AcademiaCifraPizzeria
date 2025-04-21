@@ -14,7 +14,6 @@ public class PizzaStore {
 
     public Pizza orderPizza(String type) {
         Pizza pizza = factory.createPizza(type); //создание экземпляра конкретного вида
-        //pizza.prepare();
         return pizza;
     }
 }

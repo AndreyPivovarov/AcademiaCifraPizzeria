@@ -2,6 +2,9 @@ package objects;
 
 import java.util.ArrayList;
 
+/**
+ * Класс отображения меню пиццерии
+ */
 public class Menu {
     public void menuTable(){
         ArrayList<Pizza> pizzas = new ArrayList<>();

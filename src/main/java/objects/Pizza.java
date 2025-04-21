@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public abstract class Pizza {
     private String name; //название
-    private double price; //тип основы
-    private int standsrtSize; //тип соуса
+    private double price; //цена
+    private int standsrtSize; //размер пиццы
 
     public String getName() {
         return name;
