@@ -1,10 +1,10 @@
 package objects;
 
-public class ToppingsCheese extends ToppingsDecorator{
+public class PizzaCheese extends PizzaDecorator {
 
     Pizza pizza;
 
-    public ToppingsCheese(Pizza pizza) {
+    public PizzaCheese(Pizza pizza) {
         this.pizza = pizza;
     }
 
@@ -15,6 +15,6 @@ public class ToppingsCheese extends ToppingsDecorator{
 
     @Override
     public double getPrice() {
-        return super.getPrice() * 1.2;
+        return pizza.getPrice() + 20;
     }
 }

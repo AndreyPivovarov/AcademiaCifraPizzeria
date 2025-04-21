@@ -33,11 +33,8 @@ public abstract class Pizza {
 
     @Override
     public String toString() {
-        return "Pizza{" +
-                "name=" + getName() +
+        return  "Пицца=" + getName() +
                 ", цена=" + getPrice() +
-                ", стандартный размер=" + getStandsrtSize() +
-                //", добавки=" + toppings +
-                '}' + "\n";
+                ", стандартный размер=" + getStandsrtSize();
     }
 }
