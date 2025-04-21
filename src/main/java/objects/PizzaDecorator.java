@@ -8,7 +8,5 @@ public abstract class PizzaDecorator extends Pizza{
     public abstract double getPrice();
 
     @Override
-    public int getStandsrtSize() {
-        return super.getStandsrtSize();
-    }
+    public abstract int getStandsrtSize();
 }

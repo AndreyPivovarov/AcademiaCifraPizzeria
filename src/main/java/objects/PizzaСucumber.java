@@ -17,4 +17,9 @@ public class PizzaСucumber extends PizzaDecorator {
     public double getPrice() {
         return pizza.getPrice() + 15;
     }
+
+    @Override
+    public int getStandsrtSize() {
+        return pizza.getStandsrtSize();
+    }
 }

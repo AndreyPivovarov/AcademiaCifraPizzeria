@@ -17,4 +17,9 @@ public class PizzaCheese extends PizzaDecorator {
     public double getPrice() {
         return pizza.getPrice() + 20;
     }
+
+    @Override
+    public int getStandsrtSize() {
+        return pizza.getStandsrtSize();
+    }
 }
