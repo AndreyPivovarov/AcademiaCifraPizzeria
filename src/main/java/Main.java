@@ -36,17 +36,10 @@ public class Main {
             pizzas.add(i, store.orderPizza(sc.next()));
             print("Введите размер пиццы (30/45/60 см):");
             switch (sc.nextInt()) {
-                case (30):
-                    pizzas.get(i).setStandsrtSize(30);
-                    break;
-                case (45):
-                    pizzas.set(i, new PizzaSizeOneAndHalf(pizzas.get(i)));
-                    break;
-                case (60):
-                    pizzas.set(i, new PizzaSizeTwo(pizzas.get(i)));
-                    break;
-                default:
-                    throw new IllegalStateException("Вы указали неверный размер пиццы");
+                case (30) -> pizzas.get(i).setStandsrtSize(30);
+                case (45) -> pizzas.set(i, new PizzaSizeOneAndHalf(pizzas.get(i)));
+                case (60) -> pizzas.set(i, new PizzaSizeTwo(pizzas.get(i)));
+                default -> throw new IllegalStateException("Вы указали неверный размер пиццы");
             }
 
             print("Желаете добавить к пицце добавки?\nЕсли не желаете введите 'Далее', иначе:\nСыр, Огурец, Халапеньо:");
